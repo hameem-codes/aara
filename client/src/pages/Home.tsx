@@ -168,7 +168,7 @@ export default function Home() {
   return (
     <div id="top" className="min-h-screen overflow-x-hidden bg-cream text-ink">
       <header className="absolute inset-x-0 top-0 z-40 px-4 pt-4 sm:px-6 lg:px-10 lg:pt-6">
-        <div className="mx-auto flex max-w-[1380px] items-center justify-between rounded-full border border-white/15 bg-plum/90 px-5 py-3.5 text-white shadow-2xl shadow-plum/10 backdrop-blur-md sm:px-7">
+        <div className="mx-auto flex max-w-[1380px] items-center justify-between rounded-full border border-white/20 bg-black/20 px-5 py-3.5 text-white shadow-[0_12px_40px_rgba(0,0,0,.16),inset_0_1px_0_rgba(255,255,255,.12)] backdrop-blur-xl sm:px-7">
           <Logo />
           <nav className="hidden items-center gap-7 text-[11px] font-semibold uppercase tracking-[0.13em] text-white/75 xl:flex">
             <button onClick={() => scrollToId("services")} className="transition hover:text-white">Our services</button>
@@ -186,7 +186,7 @@ export default function Home() {
           </button>
         </div>
         {menuOpen && (
-          <div className="mx-auto mt-2 max-w-[1380px] rounded-[24px] border border-white/15 bg-plum px-5 py-5 text-white shadow-2xl xl:hidden">
+          <div className="mx-auto mt-2 max-w-[1380px] rounded-[24px] border border-white/20 bg-black/45 px-5 py-5 text-white shadow-2xl backdrop-blur-xl xl:hidden">
             <div className="grid gap-3 text-sm font-semibold">
               {[['services', 'Our services'], ['story', 'Why Aarra'], ['living', 'Amenities & dining'], ['reviews', 'Reviews'], ['faq', 'FAQ']].map(([id, label]) => (
                 <button key={id} onClick={() => closeMenuAndScroll(id)} className="border-b border-white/10 py-2 text-left text-white/80 last:border-0">{label}</button>
