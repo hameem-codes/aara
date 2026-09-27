@@ -199,8 +199,10 @@ export default function Home() {
       </header>
 
       <main>
-        <section className="relative isolate overflow-hidden bg-plum text-white">
-          <div className="absolute inset-0 opacity-60 [background-image:radial-gradient(circle_at_25%_12%,rgba(243,249,157,0.12),transparent_22%),radial-gradient(circle_at_90%_42%,rgba(255,107,74,0.15),transparent_25%)]" />
+        <section className="relative isolate overflow-hidden bg-[#1d1a1e] text-white">
+          <div className="absolute inset-0 -z-20 bg-[url('/manus-storage/E7T2tG5hZeyR_b048858f.jpg')] bg-cover bg-[center_58%]" />
+          <div className="absolute inset-0 -z-10 bg-gradient-to-r from-black/80 via-black/48 to-black/15" />
+          <div className="absolute inset-0 -z-10 bg-black/10" />
           <div className="absolute right-[-7%] top-[20%] h-72 w-72 rounded-full border border-white/10 sm:h-[420px] sm:w-[420px]" />
           <div className="relative mx-auto grid max-w-[1380px] items-center gap-14 px-6 pb-28 pt-40 sm:px-10 lg:grid-cols-[1.03fr_.97fr] lg:gap-16 lg:px-14 lg:pb-36 lg:pt-48">
             <div className="max-w-2xl animate-rise">
