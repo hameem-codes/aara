@@ -204,7 +204,7 @@ export default function Home() {
           <div className="absolute inset-0 -z-10 bg-gradient-to-r from-black/80 via-black/48 to-black/15" />
           <div className="absolute inset-0 -z-10 bg-black/10" />
           <div className="absolute right-[-7%] top-[20%] h-72 w-72 rounded-full border border-white/10 sm:h-[420px] sm:w-[420px]" />
-          <div className="relative mx-auto grid max-w-[1380px] items-center gap-14 px-6 pb-28 pt-40 sm:px-10 lg:grid-cols-[1.03fr_.97fr] lg:gap-16 lg:px-14 lg:pb-36 lg:pt-48">
+          <div className="relative mx-auto grid max-w-[1380px] items-center gap-9 px-6 pb-20 pt-32 sm:gap-14 sm:px-10 sm:pb-28 sm:pt-40 lg:grid-cols-[1.03fr_.97fr] lg:gap-16 lg:px-14 lg:pb-36 lg:pt-48">
             <div className="max-w-2xl animate-rise">
               <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.18em] text-white/75 backdrop-blur-sm">
                 <Sparkles size={13} className="text-lime" /> #1 senior living facility in Bengaluru
@@ -219,12 +219,12 @@ export default function Home() {
                   <span className="flex h-12 w-12 items-center justify-center rounded-full bg-lime text-plum transition group-hover:scale-105"><Play size={17} fill="currentColor" /></span> Watch campus tour
                 </button>
               </div>
-              <div className="mt-14 flex flex-wrap items-center gap-x-7 gap-y-3 border-t border-white/15 pt-5 text-xs text-white/55">
+              <div className="mt-10 flex flex-wrap items-center gap-x-7 gap-y-3 border-t border-white/15 pt-5 text-xs text-white/55 sm:mt-14">
                 <span className="flex items-center gap-2"><ShieldCheck size={16} className="text-lime" /> 1,800+ certified staff</span>
                 <span className="flex items-center gap-2"><Clock3 size={16} className="text-lime" /> 24/7 registered nurses</span>
               </div>
             </div>
-            <div className="relative mx-auto w-full max-w-[620px] animate-rise [animation-delay:120ms] lg:ml-auto">
+            <div className="relative mx-auto w-full max-w-[270px] animate-rise [animation-delay:120ms] sm:max-w-[620px] lg:ml-auto">
               <div className="absolute -left-4 top-[15%] z-10 hidden items-center gap-3 rounded-2xl border border-white/15 bg-[#472239]/90 px-4 py-3 text-xs shadow-xl backdrop-blur-md sm:flex sm:-left-10">
                 <span className="flex h-8 w-8 items-center justify-center rounded-full bg-lime text-plum"><CircleCheck size={17} /></span>
                 <span><b className="block text-white">Verified care</b><small className="text-white/55">1,800+ certified staff</small></span>
@@ -243,8 +243,8 @@ export default function Home() {
           <div className="torn-bottom bg-cream" />
         </section>
 
-        <section id="story" className="bg-cream px-6 py-24 sm:px-10 lg:px-14 lg:py-36">
-          <div className="mx-auto grid max-w-[1240px] items-center gap-16 lg:grid-cols-[.9fr_1.1fr] lg:gap-24">
+        <section id="story" className="bg-cream px-6 py-16 sm:px-10 sm:py-24 lg:px-14 lg:py-36">
+          <div className="mx-auto grid max-w-[1240px] items-center gap-10 sm:gap-16 lg:grid-cols-[.9fr_1.1fr] lg:gap-24">
             <div className="relative mx-auto w-full max-w-[520px]">
               <div className="absolute -left-7 top-[12%] h-32 w-32 rounded-full bg-lime/50 blur-2xl" />
               <div className="relative overflow-hidden rounded-[46%_46%_5%_5%/30%_30%_5%_5%] border-[8px] border-white shadow-[0_20px_60px_rgba(42,16,32,.12)]">
@@ -270,19 +270,19 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="services" className="bg-cream-warm px-6 py-24 sm:px-10 lg:px-14 lg:py-32">
+        <section id="services" className="bg-cream-warm px-6 py-16 sm:px-10 sm:py-24 lg:px-14 lg:py-32">
           <div className="mx-auto max-w-[1240px]">
             <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
               <div><span className="eyebrow">Refined living experience</span><SerifHeading className="mt-5 max-w-2xl text-plum">Care crafted around <em className="font-normal text-coral">everyday joy.</em></SerifHeading></div>
               <p className="max-w-xs text-sm leading-6 text-muted">A considered approach to the details that make a day feel good — and a community feel like home.</p>
             </div>
-            <div className="mt-14 grid gap-5 lg:grid-cols-3">
+            <div className="mt-10 grid gap-4 sm:mt-14 sm:gap-5 lg:grid-cols-3">
               {[
                 { tone: "blush", icon: <Stethoscope size={24} />, title: "24/7 professional medical oversight", body: "Registered nurses on premises around the clock, routine vitals charting, scheduled doctor consultations, and priority hospital affiliations.", link: "Explore medical facilities" },
                 { tone: "sand", icon: <Utensils size={24} />, title: "Chef-curated vegetarian nutrition", body: "Three fresh, balanced vegetarian meals prepared daily. Full dietary customization for diabetic, low-sodium, and soft-texture requirements.", link: "View dining philosophy" },
                 { tone: "sky", icon: <Flower2 size={24} />, title: "Vibrant community & well-being", body: "Daily yoga, meditation, gardening in lush green courtyards, book clubs, and cultural festivals that cultivate lifelong friendships.", link: "See life at Aarra" },
               ].map((item) => (
-                <article key={item.title} className={`pastel-${item.tone} group flex min-h-[340px] flex-col rounded-[28px] p-7 transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(42,16,32,.1)] sm:p-9`}>
+                <article key={item.title} className={`pastel-${item.tone} group flex min-h-[300px] flex-col rounded-[28px] p-7 transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(42,16,32,.1)] sm:min-h-[340px] sm:p-9`}>
                   <span className="mb-10 flex h-12 w-12 items-center justify-center rounded-2xl bg-white/65 text-plum shadow-sm">{item.icon}</span>
                   <h3 className="max-w-[260px] font-display text-[2rem] leading-[.98] tracking-[-.045em] text-plum">{item.title}</h3>
                   <p className="mt-4 max-w-sm text-sm leading-6 text-plum/65">{item.body}</p>
@@ -293,8 +293,8 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="living" className="bg-cream px-6 py-24 sm:px-10 lg:px-14 lg:py-36">
-          <div className="mx-auto grid max-w-[1240px] items-center gap-16 lg:grid-cols-[1.08fr_.92fr] lg:gap-20">
+        <section id="living" className="bg-cream px-6 py-16 sm:px-10 sm:py-24 lg:px-14 lg:py-36">
+          <div className="mx-auto grid max-w-[1240px] items-center gap-10 sm:gap-16 lg:grid-cols-[1.08fr_.92fr] lg:gap-20">
             <div>
               <span className="eyebrow">Our promise</span>
               <SerifHeading className="mt-5 max-w-xl text-plum">Unlock everyday <span className="inline-block translate-y-[-.08em] rounded-full bg-sky px-4 py-2 font-sans text-[.32em] font-semibold tracking-normal text-plum">🌿 wellness</span> peace of mind.</SerifHeading>
@@ -317,15 +317,15 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="pricing" className="bg-cream-warm px-6 py-24 sm:px-10 lg:px-14 lg:py-32">
+        <section id="pricing" className="bg-cream-warm px-6 py-16 sm:px-10 sm:py-24 lg:px-14 lg:py-32">
           <div className="mx-auto max-w-[1240px]">
             <div className="flex flex-col justify-between gap-7 border-b border-plum/10 pb-9 md:flex-row md:items-end">
               <div><div className="mb-3 flex flex-wrap gap-2 text-[10px] font-bold uppercase tracking-[.12em] text-plum/60"><span className="rounded-full border border-plum/15 px-3 py-1">100% verified care</span><span className="rounded-full border border-plum/15 px-3 py-1">Doctor supervised</span><span className="rounded-full border border-plum/15 px-3 py-1">Memory safe</span></div><SerifHeading className="max-w-2xl text-plum">Find your <em className="font-normal text-coral">sanctuary.</em></SerifHeading></div>
               <button onClick={() => scrollToId("visit")} className="flex items-center gap-2 self-start rounded-full border border-plum/20 px-5 py-3 text-xs font-bold uppercase tracking-[.1em] text-plum transition hover:bg-plum hover:text-lime md:self-end">Download full brochure <ArrowDownRight size={15} /></button>
             </div>
-            <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+            <div className="mt-8 grid gap-4 sm:mt-12 sm:gap-5 md:grid-cols-2 xl:grid-cols-4">
               {careOptions.map((plan, index) => (
-                <article key={plan.title} className={`pastel-${plan.tone} relative flex min-h-[390px] flex-col rounded-[26px] p-6 transition duration-300 ${selectedCare === index ? "ring-2 ring-plum ring-offset-4 ring-offset-cream-warm" : "hover:-translate-y-1"}`}>
+                <article key={plan.title} className={`pastel-${plan.tone} relative flex min-h-[340px] flex-col rounded-[26px] p-6 transition duration-300 sm:min-h-[390px] ${selectedCare === index ? "ring-2 ring-plum ring-offset-4 ring-offset-cream-warm" : "hover:-translate-y-1"}`}>
                   <div className="flex items-center justify-between"><span className="rounded-full bg-white/65 px-3 py-1 text-[10px] font-bold uppercase tracking-[.14em] text-plum">{plan.label}</span><span className="flex h-9 w-9 items-center justify-center rounded-full bg-white/70 text-plum">{plan.icon}</span></div>
                   <h3 className="mt-10 font-display text-[2rem] leading-[.94] tracking-[-.05em] text-plum">{plan.title}</h3>
                   <div className="mt-5 flex items-end gap-1 text-plum"><span className="font-display text-4xl tracking-[-.05em]">₹{plan.price.toLocaleString("en-IN")}</span><span className="pb-1 text-xs text-plum/55">{plan.suffix}</span></div>
@@ -338,8 +338,8 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="estimator" className="bg-plum px-6 py-20 text-white sm:px-10 lg:px-14 lg:py-28">
-          <div className="mx-auto grid max-w-[1240px] gap-14 lg:grid-cols-[.8fr_1.2fr] lg:items-center">
+        <section id="estimator" className="bg-plum px-6 py-16 text-white sm:px-10 sm:py-20 lg:px-14 lg:py-28">
+          <div className="mx-auto grid max-w-[1240px] gap-10 sm:gap-14 lg:grid-cols-[.8fr_1.2fr] lg:items-center">
             <div><span className="eyebrow eyebrow-light">Monthly cost estimator</span><SerifHeading className="mt-5 max-w-md text-white">A clearer way to plan the <em className="font-normal text-lime">next chapter.</em></SerifHeading><p className="mt-6 max-w-md text-sm leading-6 text-white/60">Use the selector to explore a starting estimate. Our team will tailor the final plan to your loved one’s needs.</p><button onClick={() => scrollToId("visit")} className="mt-8 rounded-full bg-lime px-5 py-3 text-xs font-bold text-plum transition hover:bg-[#e5ed7a]">Talk to a care advisor <ArrowRight className="ml-2 inline" size={15} /></button></div>
             <div className="rounded-[28px] border border-white/10 bg-white/7 p-6 sm:p-8">
               <div className="flex flex-col justify-between gap-5 border-b border-white/10 pb-7 sm:flex-row sm:items-end"><div><span className="text-[10px] font-bold uppercase tracking-[.15em] text-white/45">Selected option</span><h3 className="mt-2 font-display text-3xl tracking-[-.04em] text-white">{selectedPlan.title}</h3></div><div className="text-left sm:text-right"><span className="text-[10px] uppercase tracking-[.15em] text-white/45">Starting from</span><p className="mt-1 font-display text-4xl tracking-[-.05em] text-lime">₹{selectedPlan.price.toLocaleString("en-IN")}<small className="ml-1 font-sans text-xs tracking-normal text-white/45">/ month</small></p></div></div>
@@ -351,7 +351,7 @@ export default function Home() {
 
         <section className="relative overflow-hidden bg-plum px-6 pb-24 text-white sm:px-10 lg:px-14 lg:pb-32">
           <div className="torn-top bg-cream-warm" />
-          <div className="mx-auto grid max-w-[1240px] gap-14 pt-24 lg:grid-cols-[.9fr_1.1fr] lg:items-center lg:pt-32">
+          <div className="mx-auto grid max-w-[1240px] gap-10 pt-20 sm:gap-14 sm:pt-24 lg:grid-cols-[.9fr_1.1fr] lg:items-center lg:pt-32">
             <div><span className="eyebrow eyebrow-light">Life in motion</span><SerifHeading className="mt-5 max-w-lg text-white">Helping you achieve full <em className="font-normal text-lime">comfort & vitality.</em></SerifHeading><p className="mt-7 max-w-md text-sm leading-6 text-white/60">At the heart of our community is a belief that personalised therapy begins with empathy and clinical precision.</p><div className="mt-10 grid max-w-lg grid-cols-2 gap-x-8 gap-y-7 border-t border-white/10 pt-7 sm:grid-cols-4">{[["150+", "lives touched"], ["100+", "bedded campus"], ["1,800+", "care providers"], ["4.8 ★", "Google rating"]].map(([value, label]) => <div key={label}><b className="font-display text-3xl tracking-[-.05em] text-lime">{value}</b><span className="mt-1 block text-[10px] uppercase tracking-[.12em] text-white/45">{label}</span></div>)}</div></div>
             <div className="relative mx-auto w-full max-w-[560px]"><div className="overflow-hidden rounded-[30px] border border-white/10 p-2"><img src={images.wellness} alt="Senior resident practicing gentle stretching with an instructor" className="aspect-[1.1] w-full rounded-[23px] object-cover" loading="lazy" /></div><div className="absolute -bottom-7 -left-4 flex items-center gap-3 rounded-2xl bg-lime px-5 py-4 text-plum shadow-xl sm:-left-9"><Heart size={20} fill="currentColor" /><span className="text-xs font-bold">Specialised stroke & memory care</span></div></div>
           </div>
@@ -359,15 +359,15 @@ export default function Home() {
 
         <section id="reviews" className="bg-cream px-6 py-24 sm:px-10 lg:px-14 lg:py-36">
           <div className="mx-auto max-w-[1240px]"><div className="flex flex-col justify-between gap-6 md:flex-row md:items-end"><div><span className="eyebrow">Where families find peace of mind</span><SerifHeading className="mt-5 max-w-xl text-plum">What families say <em className="font-normal text-coral">about us.</em></SerifHeading></div><a href="https://www.google.com/search?q=Aarra+Springs+senior+living+reviews" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-xs font-bold uppercase tracking-[.12em] text-plum hover:text-coral">See all Google reviews <ArrowUpRight size={16} /></a></div>
-            <div className="relative mt-14"><div className="grid gap-5 lg:grid-cols-3">{testimonials.map((review) => <article key={review.author} className={`pastel-${review.tone} flex min-h-[300px] flex-col rounded-[26px] p-7 sm:p-8`}><div className="flex items-center justify-between"><span className="rounded-full bg-white/60 px-3 py-1 text-[10px] font-bold uppercase tracking-[.14em] text-plum">{review.tone === "sand" ? "Independent living" : "Assisted living"}</span><span className="text-sm tracking-[.15em] text-plum">★★★★★</span></div><p className="mt-12 font-display text-[1.65rem] leading-[1.02] tracking-[-.04em] text-plum">“{review.quote}”</p><div className="mt-auto border-t border-plum/10 pt-5 text-xs text-plum/60"><b className="text-plum">{review.author}</b> · {review.place}</div></article>)}</div><div className="mt-6 flex justify-center gap-2 lg:hidden"><button onClick={() => setReviewIndex(Math.max(0, reviewIndex - 1))} className="flex h-9 w-9 items-center justify-center rounded-full border border-plum/15"><ChevronLeft size={16} /></button><span className="flex items-center px-2 text-xs text-muted">{reviewIndex + 1} / 3</span><button onClick={() => setReviewIndex(Math.min(2, reviewIndex + 1))} className="flex h-9 w-9 items-center justify-center rounded-full border border-plum/15"><ChevronRight size={16} /></button></div></div>
+            <div className="relative mt-10 sm:mt-14"><div className="grid gap-4 sm:gap-5 lg:grid-cols-3">{testimonials.map((review) => <article key={review.author} className={`pastel-${review.tone} flex min-h-[260px] flex-col rounded-[26px] p-7 sm:min-h-[300px] sm:p-8`}><div className="flex items-center justify-between"><span className="rounded-full bg-white/60 px-3 py-1 text-[10px] font-bold uppercase tracking-[.14em] text-plum">{review.tone === "sand" ? "Independent living" : "Assisted living"}</span><span className="text-sm tracking-[.15em] text-plum">★★★★★</span></div><p className="mt-8 font-display text-[1.65rem] sm:mt-12 leading-[1.02] tracking-[-.04em] text-plum">“{review.quote}”</p><div className="mt-auto border-t border-plum/10 pt-5 text-xs text-plum/60"><b className="text-plum">{review.author}</b> · {review.place}</div></article>)}</div><div className="mt-6 flex justify-center gap-2 lg:hidden"><button onClick={() => setReviewIndex(Math.max(0, reviewIndex - 1))} className="flex h-9 w-9 items-center justify-center rounded-full border border-plum/15"><ChevronLeft size={16} /></button><span className="flex items-center px-2 text-xs text-muted">{reviewIndex + 1} / 3</span><button onClick={() => setReviewIndex(Math.min(2, reviewIndex + 1))} className="flex h-9 w-9 items-center justify-center rounded-full border border-plum/15"><ChevronRight size={16} /></button></div></div>
           </div>
         </section>
 
-        <section id="faq" className="bg-cream-warm px-6 py-24 sm:px-10 lg:px-14 lg:py-32">
+        <section id="faq" className="bg-cream-warm px-6 py-16 sm:px-10 sm:py-24 lg:px-14 lg:py-32">
           <div className="mx-auto grid max-w-[1100px] gap-14 lg:grid-cols-[.8fr_1.2fr] lg:gap-24"><div><span className="eyebrow">A little clarity</span><SerifHeading className="mt-5 text-plum">Questions, <em className="font-normal text-coral">answered.</em></SerifHeading><p className="mt-6 max-w-xs text-sm leading-6 text-muted">We know choosing care can feel like a lot. Start here, then call us for a conversation shaped around your family.</p><a href="tel:+917411206633" className="mt-8 inline-flex items-center gap-2 rounded-full bg-plum px-5 py-3 text-xs font-bold text-white transition hover:bg-plum-light"><Phone size={14} /> Speak with our team</a></div><div className="divide-y divide-plum/10 border-y border-plum/10">{faqs.map((faq, index) => <div key={faq.q}><button onClick={() => setActiveFaq(activeFaq === index ? -1 : index)} className="flex w-full items-center justify-between gap-5 py-5 text-left"><span className="font-display text-[1.35rem] leading-[1.05] tracking-[-.025em] text-plum sm:text-[1.55rem]">{faq.q}</span><span className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-plum/15 transition ${activeFaq === index ? "rotate-180 bg-plum text-lime" : "text-plum"}`}><ChevronDown size={16} /></span></button><div className={`faq-answer grid transition-[grid-template-rows,opacity] duration-300 ${activeFaq === index ? "grid-rows-[1fr] pb-5 opacity-100" : "grid-rows-[0fr] opacity-0"}`}><p className="min-h-0 overflow-hidden pr-12 text-sm leading-6 text-muted">{faq.a}</p></div></div>)}</div></div>
         </section>
 
-        <section id="visit" className="relative bg-cream px-6 py-24 sm:px-10 lg:px-14 lg:py-36">
+        <section id="visit" className="relative bg-cream px-6 py-16 sm:px-10 sm:py-24 lg:px-14 lg:py-36">
           <div className="pointer-events-none absolute right-0 top-10 h-64 w-64 rounded-full bg-lime/30 blur-3xl" />
           <div className="relative mx-auto grid max-w-[1240px] gap-14 lg:grid-cols-[.82fr_1.18fr] lg:gap-24">
             <div><span className="eyebrow">Come see for yourself</span><SerifHeading className="mt-5 max-w-lg text-plum">Visit Aarra Springs & <em className="font-normal text-coral">feel at home.</em></SerifHeading><p className="mt-6 max-w-md text-sm leading-6 text-muted">A quiet campus, a warm welcome, and a care conversation with no pressure attached.</p><div className="mt-10 space-y-5 text-sm text-plum/70"><div className="flex gap-3"><span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-lime text-plum"><HomeIcon size={16} /></span><span><b className="block text-plum">Aarra Springs</b>NH 648 Chikka Tirupathi, Near Whitefield,<br />Anchemuskur, Karnataka 563160</span></div><div className="flex gap-3"><span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-lime text-plum"><Phone size={16} /></span><a href="tel:+917411206633" className="pt-2 hover:text-coral">+91 74112 06633</a></div><div className="flex gap-3"><span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-lime text-plum">@</span><a href="mailto:life@aarra.in" className="pt-2 hover:text-coral">life@aarra.in</a></div></div><div className="mt-12 overflow-hidden rounded-[24px] border-8 border-white shadow-[0_18px_50px_rgba(42,16,32,.1)]"><img src={images.garden} alt="Serene landscaped gardens and walking paths" className="aspect-[1.8] w-full object-cover" loading="lazy" /></div></div>
