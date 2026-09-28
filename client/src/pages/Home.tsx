@@ -29,13 +29,13 @@ import {
 } from "lucide-react";
 
 const images = {
-  hero: "/manus-storage/bqy3TwP06jhS_2dc06790.jpg",
-  family: "/manus-storage/deyvIFplCzPF_37f455bd.webp",
-  nurse: "/manus-storage/deyvIFplCzPF_37f455bd.webp",
-  wellness: "/manus-storage/bqy3TwP06jhS_2dc06790.jpg",
-  garden: "/manus-storage/34RlIy54k28w_be813a13.jpg",
-  dining: "/manus-storage/uBTvxSyJN6h3_5c46e66d.webp",
-  room: "/manus-storage/bdn3LM61vvxp_a6d4b7b9.jpg",
+  hero: "/images/hero.jpg",
+  family: "/images/family.jpg",
+  nurse: "/images/nurse.jpg",
+  wellness: "/images/wellness.jpg",
+  garden: "/images/garden.jpg",
+  dining: "/images/dining.jpg",
+  room: "/images/room.jpg",
 };
 
 const careOptions = [
@@ -200,7 +200,7 @@ export default function Home() {
 
       <main>
         <section className="relative isolate overflow-hidden bg-[#1d1a1e] text-white">
-          <div className="absolute inset-0 -z-20 bg-[url('/manus-storage/E7T2tG5hZeyR_b048858f.jpg')] bg-cover bg-[center_58%]" />
+          <div className="absolute inset-0 -z-20 bg-[url('/images/hero-bg.jpg')] bg-cover bg-[center_58%]" />
           <div className="absolute inset-0 -z-10 bg-gradient-to-r from-black/80 via-black/48 to-black/15" />
           <div className="absolute inset-0 -z-10 bg-black/10" />
           <div className="absolute right-[-7%] top-[20%] h-72 w-72 rounded-full border border-white/10 sm:h-[420px] sm:w-[420px]" />
