@@ -1,9 +1,8 @@
 @import "tailwindcss";
-@import "tw-animate-css";
-
-@custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Playfair Display", Georgia, serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -32,10 +31,10 @@
   --color-cream: #fdfbf7;
   --color-cream-warm: #f7f3eb;
   --color-lime: #f3f99d;
+  --color-lime-dark: #dce764;
   --color-coral: #ff6b4a;
   --color-sky: #e0f2fe;
   --color-ink: #1d1a1e;
-  --color-muted: #5a545d;
 }
 
 :root {
@@ -63,10 +62,13 @@
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { margin: 0; min-width: 320px; background: #fdfbf7; color: #1d1a1e; font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif; }
+body { margin: 0; min-width: 320px; background: #fdfbf7; color: #1d1a1e; font-family: var(--font-sans); }
 button, input, select, textarea { font: inherit; }
 button, a { -webkit-tap-highlight-color: transparent; }
 button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible { outline: 3px solid rgba(255, 107, 74, .55); outline-offset: 3px; }
+
+/* Anchored sections clear the sticky header when scrolled to */
+section[id] { scroll-margin-top: 5.5rem; }
 
 @layer base {
   * { @apply border-border outline-ring/50; }
@@ -77,8 +79,8 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 @layer components {
   .container { width: 100%; margin-inline: auto; padding-inline: 1rem; }
   .flex { min-height: 0; min-width: 0; }
-  .font-display { font-family: "Playfair Display", Georgia, serif; }
-  .eyebrow { display: inline-flex; align-items: center; gap: .45rem; color: #5f254d; font-size: .66rem; font-weight: 800; letter-spacing: .19em; line-height: 1; text-transform: uppercase; }
+  .font-display { font-family: var(--font-display); }
+  .eyebrow { display: inline-flex; align-items: center; gap: .45rem; color: #5f254d; font-size: .75rem; font-weight: 800; letter-spacing: .16em; line-height: 1.2; text-transform: uppercase; }
   .eyebrow::before { content: ""; display: inline-block; width: 18px; height: 1px; background: currentColor; }
   .eyebrow-light { color: #f3f99d; }
   .pastel-blush { background: #fce7f3; }
@@ -88,13 +90,86 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   .torn-bottom, .torn-top { position: relative; height: 34px; z-index: 2; }
   .torn-bottom { margin-bottom: -1px; clip-path: polygon(0 18%, 5% 38%, 10% 20%, 16% 48%, 23% 18%, 30% 40%, 37% 15%, 44% 42%, 52% 15%, 60% 44%, 68% 19%, 76% 47%, 83% 18%, 91% 42%, 100% 15%, 100% 100%, 0 100%); }
   .torn-top { margin-top: -1px; clip-path: polygon(0 0, 100% 0, 100% 72%, 93% 54%, 86% 82%, 78% 54%, 70% 78%, 62% 52%, 54% 84%, 46% 55%, 38% 80%, 30% 50%, 22% 76%, 14% 52%, 7% 78%, 0 55%); }
-  .care-range { height: 7px; appearance: none; border-radius: 999px; background: linear-gradient(90deg, #f3f99d 0%, #f3f99d 100%); }
-  .care-range::-webkit-slider-thumb { appearance: none; height: 22px; width: 22px; border-radius: 50%; border: 4px solid #2a1020; background: #f3f99d; box-shadow: 0 0 0 4px rgba(243,249,157,.2); }
-  .care-range::-moz-range-thumb { height: 17px; width: 17px; border-radius: 50%; border: 4px solid #2a1020; background: #f3f99d; box-shadow: 0 0 0 4px rgba(243,249,157,.2); }
+
+  /* Range slider: filled track up to the thumb via --fill percentage (set inline) */
+  .care-range { height: 7px; appearance: none; border-radius: 999px; background: linear-gradient(90deg, var(--color-lime) 0%, var(--color-lime) var(--fill, 67%), rgba(255,255,255,.18) var(--fill, 67%), rgba(255,255,255,.18) 100%); }
+  .care-range::-webkit-slider-thumb { appearance: none; height: 22px; width: 22px; border-radius: 50%; border: 4px solid #2a1020; background: var(--color-lime); box-shadow: 0 0 0 4px rgba(243,249,157,.2); cursor: pointer; }
+  .care-range::-moz-range-thumb { height: 17px; width: 17px; border-radius: 50%; border: 4px solid #2a1020; background: var(--color-lime); box-shadow: 0 0 0 4px rgba(243,249,157,.2); cursor: pointer; }
+  .care-range:focus-visible { outline: 3px solid rgba(255, 107, 74, .55); outline-offset: 4px; }
 }
 
 @keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
 .animate-rise { animation: rise .7s cubic-bezier(.23,1,.32,1) both; }
+
+/* Scroll-reveal (driven by the Reveal component + IntersectionObserver) */
+.reveal { opacity: 0; transform: translateY(26px); transition: opacity .7s cubic-bezier(.23,1,.32,1), transform .7s cubic-bezier(.23,1,.32,1); will-change: opacity, transform; }
+.reveal-visible { opacity: 1; transform: none; }
+
+/* Hero: slow Ken Burns drift on the background photo */
+@keyframes kenburns { from { transform: scale(1); } to { transform: scale(1.12); } }
+.kenburns { animation: kenburns 24s ease-in-out infinite alternate; will-change: transform; }
+
+/* Hero: gentle floating decorative rings */
+@keyframes floaty { from { transform: translateY(0); } to { transform: translateY(-14px); } }
+.floaty { animation: floaty 7s ease-in-out infinite alternate; }
+
+/* Trust marquee strip */
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.marquee { overflow: hidden; }
+.marquee-track { display: flex; width: max-content; animation: marquee 32s linear infinite; will-change: transform; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+.marquee-track-reverse { animation-direction: reverse; }
+/* Soft edge fades so cards dissolve at the sides instead of hard-clipping */
+.marquee-fade-x { mask-image: linear-gradient(to right, transparent, black 7%, black 93%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, black 7%, black 93%, transparent); }
+
+/* Branded campus map (MapLibre GL) */
+.campus-map-wrap { position: relative; overflow: hidden; border-radius: 24px; }
+.campus-map { background: #f3ede2; }
+.campus-map canvas { outline: none; }
+/* Warm tint so the tiles sit inside the cream/plum palette */
+.campus-map .maplibregl-canvas { filter: sepia(12%) saturate(82%) brightness(102%); }
+.campus-map .maplibregl-ctrl-group { border: none !important; border-radius: 14px !important; overflow: hidden; box-shadow: 0 2px 12px rgba(42,16,32,.14) !important; }
+.campus-map .maplibregl-ctrl-group button { width: 34px !important; height: 34px !important; }
+.campus-map .maplibregl-ctrl-group button + button { border-top: 1px solid rgba(42,16,32,.08) !important; }
+.campus-map .maplibregl-ctrl-attrib { background: rgba(253,251,247,.85) !important; border-radius: 10px 0 0 0; font-size: 10px; }
+.campus-map .maplibregl-popup-content { border-radius: 16px; box-shadow: 0 12px 32px rgba(42,16,32,.18); padding: 12px 16px; }
+.campus-map .maplibregl-popup-close-button { font-size: 16px; padding: 2px 8px; }
+.campus-map .maplibregl-popup-tip { border-top-color: #fff !important; }
+.campus-pin-dot { display: flex; width: 40px; height: 40px; align-items: center; justify-content: center; border-radius: 50% 50% 50% 4px; background: #ff6b4a; border: 3px solid #fdfbf7; box-shadow: 0 6px 18px rgba(255,107,74,.45); }
+
+/* Coverflow review carousel: active card dead-centre, small slices of the
+   prev/next reviews peeking at the sides. Centering is done with a computed
+   padding-left on the track, so translating by -i*(w+gap) lands card i
+   exactly in the middle at every breakpoint. */
+.review-track {
+  --review-card-w: min(86vw, 760px);
+  --review-gap: 24px;
+  gap: var(--review-gap);
+  padding-left: calc(50% - var(--review-card-w) / 2);
+  transition: transform .7s cubic-bezier(.23,1,.32,1);
+}
+@media (min-width: 640px) { .review-track { --review-gap: 30px; } }
+.review-card { width: var(--review-card-w); flex-shrink: 0; transition: transform .7s cubic-bezier(.23,1,.32,1), scale .7s cubic-bezier(.23,1,.32,1), opacity .7s cubic-bezier(.23,1,.32,1), box-shadow .7s cubic-bezier(.23,1,.32,1); }
+
+/* Overlays & dialogs */
+@keyframes overlay-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes modal-in { from { opacity: 0; transform: translateY(14px) scale(.97); } to { opacity: 1; transform: none; } }
+.animate-overlay-in { animation: overlay-in .25s ease-out both; }
+.animate-modal-in { animation: modal-in .3s cubic-bezier(.23,1,.32,1) both; }
+@keyframes fade-zoom { from { opacity: 0; transform: scale(.96); } to { opacity: 1; transform: none; } }
+.animate-fade-zoom { animation: fade-zoom .25s ease-out both; }
+
+/* Micro-interactions */
+@keyframes pop { 0% { transform: scale(.4); opacity: 0; } 70% { transform: scale(1.08); opacity: 1; } 100% { transform: scale(1); opacity: 1; } }
+.animate-pop { animation: pop .45s cubic-bezier(.23,1,.32,1) both; }
+@keyframes swap-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.animate-swap { animation: swap-in .35s ease-out both; }
+@keyframes fab-pulse { from { transform: scale(1); opacity: .4; } to { transform: scale(1.55); opacity: 0; } }
+.fab-pulse { animation: fab-pulse 1.9s ease-out infinite; }
+
+/* Reviews track: slides by --i on small screens, static grid on desktop */
+.review-track { transition: transform .5s ease-out; transform: translateX(calc(var(--i, 0) * -100%)); }
+@media (min-width: 1024px) { .review-track { transform: none; } }
 
 @media (min-width: 640px) { .container { padding-inline: 1.5rem; } }
 @media (min-width: 1024px) { .container { max-width: 1280px; padding-inline: 2rem; } }
@@ -104,4 +179,5 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  .reveal { opacity: 1; transform: none; }
 }

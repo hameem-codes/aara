@@ -2,13 +2,125 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#2A1020" />
-    <meta name="description" content="Aarra Communities — luxury senior living, assisted care, and 24/7 nursing at Aarra Springs, Bengaluru." />
+    <meta
+      name="description"
+      content="Aarra Communities — luxury senior living, assisted care, and 24/7 geriatric nursing at Aarra Springs, Chikka Tirupathi, Whitefield, Bengaluru."
+    />
     <title>Aarra Communities — Senior Living, Reimagined</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Open Graph / social sharing -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Aarra Communities" />
+    <meta property="og:title" content="Aarra Communities — Senior Living, Reimagined" />
+    <meta
+      property="og:description"
+      content="Luxury senior living apartments, assisted care, and 24/7 geriatric nursing nestled in peaceful Chikka Tirupathi, Whitefield."
+    />
+    <meta property="og:image" content="https://aarra.in/images/hero.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Aarra Communities — Senior Living, Reimagined" />
+    <meta
+      name="twitter:description"
+      content="Luxury senior living apartments, assisted care, and 24/7 geriatric nursing in Bengaluru."
+    />
+    <meta name="twitter:image" content="https://aarra.in/images/hero.jpg" />
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Fast paint: load the hero image before JS/CSS finishes -->
+    <link rel="preload" as="image" href="/images/hero.jpg" fetchpriority="high" />
+
+    <!-- Structured data: local business -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "@id": "https://aarra.in/#business",
+        "name": "Aarra Communities — Aarra Springs",
+        "description": "Luxury senior living apartments, assisted care, and 24/7 geriatric nursing at Aarra Springs, Chikka Tirupathi, Whitefield, Bengaluru.",
+        "url": "https://aarra.in/",
+        "image": "https://aarra.in/images/hero.jpg",
+        "telephone": "+917411206633",
+        "email": "life@aarra.in",
+        "priceRange": "₹₹₹",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "NH 648 Chikka Tirupathi, Anchemuskur",
+          "addressLocality": "Bengaluru",
+          "addressRegion": "Karnataka",
+          "postalCode": "563160",
+          "addressCountry": "IN"
+        },
+        "geo": { "@type": "GeoCoordinates", "latitude": 12.9447, "longitude": 77.7152 },
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+          "opens": "00:00",
+          "closes": "23:59"
+        }
+      }
+    </script>
+
+    <!-- Structured data: FAQ rich results -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What services does Aarra provide for senior living?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Aarra brings together independent living, assisted care, nursing oversight, rehabilitation, chef-curated vegetarian dining, housekeeping, wellness programming, and a warm, connected community. Every resident receives a care plan shaped around their routines and needs."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are your caregivers and nurses qualified and background-checked?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Aarra’s care teams are trained for senior support, receive role-specific onboarding, and are verified before joining the community. Registered nurses are available around the clock, with doctor consultations scheduled as needed."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can families visit and stay involved in care decisions?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Absolutely. Families are welcome to visit, join meals and celebrations, and stay close through dedicated updates. Care decisions are made collaboratively, with the resident’s preferences at the centre."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I know if home care or a senior living facility is right for my loved one?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The right choice depends on how much daily support is needed, how isolated or connected your loved one feels, and whether the family needs clinical reassurance. Our care team can have an honest, no-pressure conversation and help you compare both paths."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I get started with Aarra’s services?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Start with a campus tour or a complimentary consultation. Share a little about the kind of support you’re exploring, and our team will walk you through availability, room options, care pathways, and next steps."
+            }
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
